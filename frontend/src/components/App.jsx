@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import Footer from './footer';
+import Register from "./register";
 
 function App(){
 
@@ -8,7 +10,7 @@ function App(){
     useEffect(()=>{
         const fetchData= async()=>{
             try{
-                const resp= await axios.get('http://localhost:5000/hear');
+                const resp= await axios.get('/hear');
                 setMessage(resp.data);
                 console.log(resp);
             }catch(err){
@@ -21,6 +23,8 @@ function App(){
     return <div>
         <h1>hey bud</h1>
         <p>{message}</p>
+        <Register />
+        <Footer />
     </div>
 }
 
