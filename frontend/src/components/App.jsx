@@ -1,31 +1,58 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import Footer from './footer';
+import React, { useState } from "react";
+import Home from "./home";
+import SignIn from "./login";
 import Register from "./register";
+import Footer from "./footer";
 
-function App(){
+function App() {
+    const [showHome, setShowHome] = useState(true);
+    const [showSignIn, setShowSignIn] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const [message, setMessage]= useState("");
+    const goToSignIn = () => {
+        setShowHome(false);
+        setShowSignIn(true);
+    };
 
-    useEffect(()=>{
-        const fetchData= async()=>{
-            try{
-                const resp= await axios.get('/hear');
-                setMessage(resp.data);
-                console.log(resp);
-            }catch(err){
-                console.log("fetching error");
-            }
-        }
-        fetchData();
-    },[]);
+    const goToRegister = () => {
+        setShowHome(false);
+        setShowRegister(true);
+    };
 
-    return <div>
-        <h1>hey bud</h1>
-        <p>{message}</p>
-        <Register />
-        <Footer />
-    </div>
+    const handleSignIn = () => {
+        setIsLoggedIn(true);
+        setShowHome(true);
+        setShowSignIn(false);
+        setShowRegister(false);
+    };
+
+    const handleRegister = () => {
+        setShowHome(true);
+        setShowSignIn(false);
+        setShowRegister(false);
+    };
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        setShowHome(true);
+    };
+
+    return (
+        <div>
+            {showHome && (
+                <Home
+                    goToSignIn={goToSignIn}
+                    goToRegister={goToRegister}
+                    isLoggedIn={isLoggedIn}
+                    handleLogout={handleLogout}
+                />
+            )}
+            {showSignIn && <SignIn handleSignIn={handleSignIn} handleRegister={handleRegister} />}
+            {showRegister && <Register handleRegister={handleRegister} />}
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
