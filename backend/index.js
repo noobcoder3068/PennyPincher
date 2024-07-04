@@ -42,13 +42,14 @@ app.post('/login', async (req, res) => {
         if (result.rows.length > 0) {
             const user = result.rows[0];
             const storedHashedPassword = user.password;
-            console.log("Stored hashed password:", storedHashedPassword);
+            console.log(user);
+            // console.log("Stored hashed password:", storedHashedPassword);
             bcrypt.compare(password, storedHashedPassword, (err, isMatch) => {
                 if (err) {
                     console.error("Error comparing passwords:", err);
                     res.status(500).send("Internal server error");
                 } else if (isMatch) {
-                    res.send("Password is correct");
+                    res.send({message: "success", user});
                 } else {
                     res.send("Incorrect Password");
                 }
@@ -92,6 +93,45 @@ app.post('/register', async (req, res) => {
         }
     } catch (err) {
         console.error("Database error:", err);
+        res.status(500).send("Internal server error");
+    }
+});
+
+app.post('/AddExpense', async (req, res) => {
+    const { type, description, amount, category, user_id } = req.body;
+    if (!type || !amount) {
+        return res.status(400).send("Type or Amount not present");
+    } else if (type === "Expense" && !category) {
+        return res.status(400).send("Category not present");
+    }
+    console.log(type, description, amount, category, user_id);
+    try {
+        const result1 = await db.query('insert into transection_data(user_id, balance, transection_type) values($1, $2, $3)', [user_id, amount, type]);
+        console.log("Transaction data inserted successfully:", result1.rows);
+
+        const total= await db.query('select transection_type, SUM(balance) as total_amount from transection_data where user_id= $1 group by transection_type', [user_id]);
+        let expenseCost= 0;
+        let savingCost= 0;
+
+        total.rows.map(val=>{
+            if(val.transection_type === "Expense"){
+                expenseCost= val.total_amount;
+            }
+            else{
+                savingCost= val.total_amount;
+            }
+        })
+
+        const netBalance= savingCost- expenseCost;
+        console.log(netBalance);
+
+        
+        const result2 = await db.query('insert into details(user_id, category, description, current_balance) values($1, $2, $3, $4)', [user_id, category, description, netBalance]);
+        console.log("Details inserted successfully:", result2.rows);
+
+        res.status(201).send("Expense added successfully");
+    } catch (err) {
+        console.error("Error inserting data:", err);
         res.status(500).send("Internal server error");
     }
 });

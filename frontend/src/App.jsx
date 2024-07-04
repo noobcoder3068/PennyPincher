@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Home from "./components/home";
 import SignIn from "./pages/login";
 import Register from "./pages/register";
@@ -6,7 +6,7 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import Contact from "./components/contact";
 import About from "./components/about";
-import Display from "./pages/display";
+import Display from "./display";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
