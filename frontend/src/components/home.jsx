@@ -1,7 +1,7 @@
 import React from "react";
 import './home.css';
 
-function Home({ goToSignIn, goToRegister, isLoggedIn, handleLogout }) {
+function Home() {
     return (
         <div className="home-container">
             <h1>Welcome to PennyPincher</h1>
@@ -9,17 +9,13 @@ function Home({ goToSignIn, goToRegister, isLoggedIn, handleLogout }) {
                 <section className="hero">
                     <h2>Your Personal Finance Tracker</h2>
                     <p>Start managing your finances efficiently with PennyPincher.</p>
-                    {!isLoggedIn ? (
-                        <div>
-                            <button onClick={goToSignIn}>Sign In</button>
-                            <button onClick={goToRegister}>Register</button>
-                        </div>
-                    ) : (
-                        <div>
-                            <p>Welcome, you are logged in!</p>
-                            <button onClick={handleLogout}>Logout</button>
-                        </div>
-                    )}
+                </section>
+
+                <section className="about">
+                    <h2>About Us</h2>
+                    <p>
+                        PennyPincher is designed to help you take control of your finances. With our easy-to-use platform, you can track your expenses, plan your budget, and gain insights into your financial habits. Our goal is to provide you with the tools you need to achieve financial stability and reach your financial goals.
+                    </p>
                 </section>
 
                 <section className="features">
@@ -31,7 +27,6 @@ function Home({ goToSignIn, goToRegister, isLoggedIn, handleLogout }) {
                     </ul>
                 </section>
             </main>
-
         </div>
     );
 }

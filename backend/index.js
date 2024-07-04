@@ -65,6 +65,9 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
     const { email, username, password } = req.body;
+    if (!email || !username || !password) {
+        return res.status(400).send("Email, username, and password are required");
+    }
     try {
         const result = await db.query('SELECT * FROM users WHERE email = $1 OR username = $2', [email, username]);
         if (result.rows.length >= 1) {

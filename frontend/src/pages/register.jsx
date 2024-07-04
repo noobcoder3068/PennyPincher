@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 import './register.css';
+import { useNavigate } from "react-router-dom";
 
-function Register({ handleRegister, handleSignIn }) {
+function Register() {
     const [register, setRegister] = useState({
         email: "",
         username: "",
         password: "",
     });
+    const navigate= useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -26,15 +28,15 @@ function Register({ handleRegister, handleSignIn }) {
                 username:"",
                 password:"",
             });
-            handleSignIn();
+            navigate('/Display');
         }catch(err){
-            console.log("HandleClick problem ");
+            console.error("HandleClick problem:", err.response ? err.response.data : err.message);
             setRegister({
                 email:"",
                 username:"",
                 password:"",
             });
-            handleRegister();
+            navigate('/');
         }
     };
 

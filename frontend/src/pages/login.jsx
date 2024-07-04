@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './login.css';
+import { useNavigate } from "react-router-dom";
 
-function SignIn({ handleSignIn, handleRegister}) {
+function SignIn() {
     const [login, setLogin] = useState({
         name: "",
         password: "",
     });
+    const navigate= useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -24,14 +25,14 @@ function SignIn({ handleSignIn, handleRegister}) {
                 name: "",
                 password: "",
             });
-            handleSignIn();
+            navigate('/Display');
         } catch (err) {
             console.error("Error in handleClick:", err.response ? err.response.data : err.message);
             setLogin({
                 name: "",
                 password: "",
             });
-            handleRegister();
+            navigate('/');
         }
     }
 
