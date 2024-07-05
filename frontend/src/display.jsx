@@ -1,6 +1,7 @@
 import React from 'react';
 import './display.css';
 import AddExpanse from './after/AddExpanse';
+import ShowInfo from './after/ShowInfo';
 import { useLocation } from 'react-router-dom';
 
 const Display = () => {
@@ -18,6 +19,7 @@ const Display = () => {
         <strong>Last Login:</strong> 
       </p>
       <AddExpanse user_id={user_id}/>
+      <ShowInfo user_id={user_id}/>
     </div>
   );
 };

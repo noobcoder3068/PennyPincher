@@ -43,7 +43,6 @@ app.post('/login', async (req, res) => {
             const user = result.rows[0];
             const storedHashedPassword = user.password;
             console.log(user);
-            // console.log("Stored hashed password:", storedHashedPassword);
             bcrypt.compare(password, storedHashedPassword, (err, isMatch) => {
                 if (err) {
                     console.error("Error comparing passwords:", err);
@@ -98,16 +97,19 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/AddExpense', async (req, res) => {
-    const { type, description, amount, category, user_id } = req.body;
+    const { type, description, amount, category, method, user_id } = req.body;
     if (!type || !amount) {
         return res.status(400).send("Type or Amount not present");
     } else if (type === "Expense" && !category) {
         return res.status(400).send("Category not present");
     }
-    console.log(type, description, amount, category, user_id);
+    console.log(type, description, amount, category, method, user_id);
     try {
-        const result1 = await db.query('insert into transection_data(user_id, balance, transection_type) values($1, $2, $3)', [user_id, amount, type]);
-        console.log("Transaction data inserted successfully:", result1.rows);
+        const result1 = await db.query(
+            'INSERT INTO transection_data(user_id, balance, transection_type, transection_method) VALUES($1, $2, $3, $4) RETURNING id',
+            [user_id, amount, type, method]
+        );
+        const transection_id = result1.rows[0].id;
 
         const total= await db.query('select transection_type, SUM(balance) as total_amount from transection_data where user_id= $1 group by transection_type', [user_id]);
         let expenseCost= 0;
@@ -124,9 +126,9 @@ app.post('/AddExpense', async (req, res) => {
 
         const netBalance= savingCost- expenseCost;
         console.log(netBalance);
-
         
-        const result2 = await db.query('insert into details(user_id, category, description, current_balance) values($1, $2, $3, $4)', [user_id, category, description, netBalance]);
+        const result2 = await db.query('insert into details(user_id, category, description, current_balance, transection_id) values($1, $2, $3, $4, $5)', 
+            [user_id, category, description, netBalance, transection_id]);
         console.log("Details inserted successfully:", result2.rows);
 
         res.status(201).send("Expense added successfully");
@@ -135,6 +137,18 @@ app.post('/AddExpense', async (req, res) => {
         res.status(500).send("Internal server error");
     }
 });
+
+app.get('/getAllInfo', async(req,res)=>{
+    const user_id= parseInt(req.query.user_id,10);
+    console.log(user_id);
+    try{
+        const result= await db.query('select t.balance, t.transection_date, t.transection_method, d.category, d.description from transection_data as t left join details as d on t.id= d.transection_id where t.user_id= $1',[user_id])
+        console.log(result.rows);
+        res.json(result.rows);
+    }catch(err){
+        console.log('error in fetching  info', err); 
+    }
+})
 
 app.listen(port, () => {
     console.log('Server is live on port', port);

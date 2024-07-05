@@ -10,6 +10,7 @@ function AddExpanse({user_id}) {
     description: "",
     amount: "",
     category: "",
+    method: "",
   });
 
   function handleChange(event) {
@@ -36,6 +37,7 @@ function AddExpanse({user_id}) {
         description: "",
         amount: "",
         category: "",
+        method:"",
       });
     } catch (err) {
       console.log("There was an error in sending from add expense ", err.response ? err.response.data : err.message);
@@ -71,8 +73,15 @@ function AddExpanse({user_id}) {
           value={note.amount}
           placeholder="Amount"
         />
+        <input
+          name="method"
+          type="text"
+          onChange={handleChange}
+          value={note.method}
+          placeholder="Method"
+        />
 
-        {include && (
+        {include ? (
           <>
             <label>Category</label>
             <select
@@ -86,10 +95,29 @@ function AddExpanse({user_id}) {
               <option value="Transport">Transport</option>
               <option value="Rent">Rent</option>
               <option value="Entertainment">Entertainment</option>
-              <option value="Other">Other</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Other_expense">Other_expense</option>
             </select>
           </>
-        )}
+        ) : (
+          <>
+            <label>Category</label>
+            <select
+              name="category"
+              value={note.method}
+              onChange={handleChange}
+              className="category"
+            >
+              <option value="">Select Method</option>
+              <option value="Income">Income</option>
+              <option value="Bonus">Bonus</option>
+              <option value="Gift">Gift</option>
+              <option value="Other_Saving">Other_saving</option>
+            </select>
+          </>
+        )
+      
+      }
 
         <button onClick={submitNote}>Add</button>
       </form>
