@@ -142,7 +142,7 @@ app.get('/getAllInfo', async(req,res)=>{
     const user_id= parseInt(req.query.user_id,10);
     console.log(user_id);
     try{
-        const result= await db.query('select t.balance, t.transection_date, t.transection_method, d.category, d.description from transection_data as t left join details as d on t.id= d.transection_id where t.user_id= $1',[user_id])
+        const result= await db.query('select t.balance as balance, t.transection_date as date, t.transection_method as method, d.category as category, d.description as description from transection_data as t left join details as d on t.id= d.transection_id where t.user_id= $1',[user_id])
         console.log(result.rows);
         res.json(result.rows);
     }catch(err){

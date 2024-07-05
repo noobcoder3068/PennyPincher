@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./AddExpanse.css";
-import axios from "axios";
 
-function AddExpanse({user_id}) {
+function AddExpanse({ addExpense }) {
   const [include, setInclude] = useState(false);
 
   const [note, setNote] = useState({
@@ -30,14 +29,13 @@ function AddExpanse({user_id}) {
     event.preventDefault();
     try {
       console.log(note);
-      const result = await axios.post('/AddExpense', {...note, user_id}); 
-      console.log(result.data);
+      await addExpense(note);
       setNote({
         type: "",
         description: "",
         amount: "",
         category: "",
-        method:"",
+        method: "",
       });
     } catch (err) {
       console.log("There was an error in sending from add expense ", err.response ? err.response.data : err.message);
@@ -104,7 +102,7 @@ function AddExpanse({user_id}) {
             <label>Category</label>
             <select
               name="category"
-              value={note.method}
+              value={note.category}
               onChange={handleChange}
               className="category"
             >
@@ -115,9 +113,7 @@ function AddExpanse({user_id}) {
               <option value="Other_Saving">Other_saving</option>
             </select>
           </>
-        )
-      
-      }
+        )}
 
         <button onClick={submitNote}>Add</button>
       </form>

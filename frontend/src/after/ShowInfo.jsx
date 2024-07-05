@@ -1,25 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import "./ShowInfo.css";
 
-function ShowInfo({user_id}){
-    const [information, setInformation]= useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await axios.get('/getAllInfo', { params: { user_id } });
-                setInformation(result.data);
-            } catch (err) {
-                console.log('error in fetching from frontend', err);
-            }
-        };
-
-        fetchData();
-    }, [user_id]);
-
-    console.log(information.data);
-
-    return <h1>{information.data}</h1>
+function ShowInfo({ expenses }) {
+  return (
+    <div>
+      <h1>Expense Entries</h1>
+      <ul>
+        {expenses.slice().reverse().map((expense, index) => (
+          <li key={index} className="list">
+            {expense.description}: ${expense.balance} ({expense.category} - {expense.method}): {expense.date}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default ShowInfo;
