@@ -39,3 +39,7 @@ a.active {
 a:hover {
     color: #ffeb3b;
 }
+
+.Navbarul{
+    display: flex;
+}

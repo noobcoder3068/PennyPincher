@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ShowInfo from "./ShowInfo";
+import "./AddGet.css";
 import AddExpanse from "./AddExpanse";
 
 function AddGet({ user_id }) {
@@ -31,6 +32,7 @@ function AddGet({ user_id }) {
 
   return (
     <div>
+      <h1>Welcome Back, Master!</h1>
       <h1>Expense Tracker</h1>
       <AddExpanse addExpense={addExpense} />
       <ShowInfo expenses={expenses} />

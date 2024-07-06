@@ -21,7 +21,7 @@ function App() {
                 <Route path="/Register" element={<Register />} />
                 <Route path="/About" element={<About />} />
                 <Route path="/Contact" element={<Contact />} />
-                <Route path="/Display" element={<Display /> } />
+                <Route path="/Display/*" element={<Display />} />
             </Routes>
             <Footer />
         </BrowserRouter>

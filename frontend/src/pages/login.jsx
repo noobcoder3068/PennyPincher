@@ -22,7 +22,7 @@ function SignIn() {
         try {
             const result = await axios.post('/login', login);
             console.log(result);
-            setUserid(result.data.user);
+            setUserid(result.data.user.id);
             setLogin({
                 name: "",
                 password: "",

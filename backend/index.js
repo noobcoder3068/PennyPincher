@@ -138,17 +138,28 @@ app.post('/AddExpense', async (req, res) => {
     }
 });
 
-app.get('/getAllInfo', async(req,res)=>{
-    const user_id= parseInt(req.query.user_id,10);
-    console.log(user_id);
-    try{
-        const result= await db.query('select t.balance as balance, t.transection_date as date, t.transection_method as method, d.category as category, d.description as description from transection_data as t left join details as d on t.id= d.transection_id where t.user_id= $1',[user_id])
-        console.log(result.rows);
-        res.json(result.rows);
-    }catch(err){
-        console.log('error in fetching  info', err); 
+app.get('/getAllInfo', async (req, res) => {
+    const user_id = parseInt(req.query.user_id, 10);
+    console.log('User ID:', user_id);
+  
+    if (isNaN(user_id)) {
+      console.error('Invalid user_id:', req.query.user_id);
+      return res.status(400).json({ error: 'Invalid user ID' });
     }
-})
+  
+    try {
+      const result = await db.query(
+        'SELECT t.balance AS balance, t.transection_date AS date, t.transection_method AS method, d.category AS category, d.description AS description FROM transection_data AS t LEFT JOIN details AS d ON t.id = d.transection_id WHERE t.user_id = $1',
+        [user_id]
+      );
+      console.log(result.rows);
+      res.json(result.rows);
+    } catch (err) {
+      console.log('Error in fetching info', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
 
 app.listen(port, () => {
     console.log('Server is live on port', port);
