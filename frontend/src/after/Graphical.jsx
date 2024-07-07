@@ -3,15 +3,14 @@ import axios from "axios";
 import UserContext from "../context/contextProvider";
 // import {Bar, Line, Pie , Doughnut} from "react-chartjs-2";
 
-const Charts = () => {
+const Charts = ({user_id}) => {
     const [chartData, setChartData] = useState(null);
-    const {user}= useContext(UserContext);
   
     useEffect(() => {
       const fetchChartData = async () => {
         try {
             console.log(user);
-          const response = await axios.get('/charts',user.data.id);
+          const response = await axios.get('/charts',user_id);
           setChartData(response.data);
         } catch (err) {
           console.error('Error fetching chart data:', err);

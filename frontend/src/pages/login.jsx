@@ -1,15 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import UserContext from "../context/contextProvider";
 
 function SignIn() {
     const [login, setLogin] = useState({
         name: "",
         password: "",
     });
-    const navigate= useNavigate();
-    const {setUser}= useContext(UserContext);
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -23,12 +21,12 @@ function SignIn() {
         try {
             const result = await axios.post('/login', login);
             console.log(result);
-            setUser(result.data.user);
+            const user_id = result.data.user.id;
             setLogin({
                 name: "",
                 password: "",
             });
-            navigate('/Display');
+            navigate(`/Display/${user_id}`);
         } catch (err) {
             console.error("Error in handleClick:", err.response ? err.response.data : err.message);
             setLogin({
@@ -62,4 +60,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
