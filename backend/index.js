@@ -159,7 +159,55 @@ app.get('/getAllInfo', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
-  
+
+app.get('/charts', async (req, res) => {
+const user_id = parseInt(req.query.user_id, 10);
+console.log('User ID:', user_id);
+
+    try {
+        const result = await db.query(`
+            WITH transaction_summary AS (
+                SELECT transection_type, SUM(balance) AS total_balance 
+                FROM transection_data 
+                WHERE user_id = $1 
+                GROUP BY transection_type
+            ),
+            saving_by_category AS (
+                SELECT d.category, SUM(t.balance) AS total_saving 
+                FROM transection_data AS t 
+                LEFT JOIN details AS d ON t.id = d.transection_id 
+                WHERE t.user_id = $1 AND t.transection_type = 'Saving' 
+                GROUP BY d.category
+            ),
+            expense_by_category AS (
+                SELECT d.category, SUM(t.balance) AS total_expense 
+                FROM transection_data AS t 
+                LEFT JOIN details AS d ON t.id = d.transection_id 
+                WHERE t.user_id = $1 AND t.transection_type = 'Expense' 
+                GROUP BY d.category
+            ),
+            balance_by_method AS (
+                SELECT transection_method, SUM(balance) AS total_balance 
+                FROM transection_data 
+                WHERE user_id = $1 
+                GROUP BY transection_method
+            )
+            SELECT 
+                (SELECT json_agg(ts) FROM transaction_summary ts) AS transaction_summary,
+                (SELECT json_agg(sb) FROM saving_by_category sb) AS saving_by_category,
+                (SELECT json_agg(eb) FROM expense_by_category eb) AS expense_by_category,
+                (SELECT json_agg(bm) FROM balance_by_method bm) AS balance_by_method;
+        `, [user_id]);
+
+        console.log('Chart Data:', result.rows[0]);
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.log('There was an error in fetching chart data:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 
 app.listen(port, () => {
     console.log('Server is live on port', port);

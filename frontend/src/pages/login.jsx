@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../context/contextProvider";
 
 function SignIn() {
     const [login, setLogin] = useState({
         name: "",
         password: "",
     });
-    const [userid, setUserid]= useState();
     const navigate= useNavigate();
+    const {setUser}= useContext(UserContext);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -22,12 +23,12 @@ function SignIn() {
         try {
             const result = await axios.post('/login', login);
             console.log(result);
-            setUserid(result.data.user.id);
+            setUser(result.data.user);
             setLogin({
                 name: "",
                 password: "",
             });
-            navigate('/Display', {state :{user: result.data.user }});
+            navigate('/Display');
         } catch (err) {
             console.error("Error in handleClick:", err.response ? err.response.data : err.message);
             setLogin({
