@@ -7,8 +7,7 @@ function SignIn() {
         name: "",
         password: "",
     });
-    const [userid, setUserid]= useState();
-    const navigate= useNavigate();
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -22,12 +21,12 @@ function SignIn() {
         try {
             const result = await axios.post('/login', login);
             console.log(result);
-            setUserid(result.data.user.id);
+            const user_id = result.data.user.id;
             setLogin({
                 name: "",
                 password: "",
             });
-            navigate('/Display', {state :{user: result.data.user }});
+            navigate(`/Display/${user_id}`);
         } catch (err) {
             console.error("Error in handleClick:", err.response ? err.response.data : err.message);
             setLogin({
@@ -61,4 +60,3 @@ function SignIn() {
 }
 
 export default SignIn;
-

@@ -1,11 +1,12 @@
 import React from "react";
 import {Bar, Line, Pie , Doughnut} from "react-chartjs-2";
 
-function Charts()
+function Charts({user_id})
 {
+  console.log("we sre in charts");
     
     return (
-        <p>hwy</p>
+        <p>Hello {user_id}</p>
     )
 }
 

@@ -3,12 +3,10 @@ import AddGet from './after/AddGet';
 import Charts from './after/Graphical';
 import Feedback from './after/Feedback';
 import SideBar from './after/sidebar';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 const Display = () => {
-  const location = useLocation();
-  const {user} = location.state ;
-  const user_id = user?.id;
+  const {user_id}= useParams();
 
   if (!user_id) {
     console.error('Invalid user_id:', user_id);
@@ -17,12 +15,12 @@ const Display = () => {
 
   return (
     <div className="display-container">
-      <SideBar />
+      <SideBar user_id={user_id}/>
       <div className="display-content">
         <Routes>
-          <Route path="/" element={<AddGet user_id={user_id} />} />
-          <Route path="Charts" element={<Charts />} />
-          <Route path="FeedBack" element={<Feedback />} />
+          <Route path="/" element={<AddGet user_id={user_id}/>} />
+          <Route path="Charts" element={<Charts user_id={user_id} />} />
+          <Route path="FeedBack" element={<Feedback user_id={user_id} />} />
         </Routes>
       </div>
     </div>
