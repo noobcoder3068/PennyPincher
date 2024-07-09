@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ShowInfo from "./ShowInfo";
 import "./AddGet.css";
 import AddExpanse from "./AddExpanse";
-import UserContext from "../context/contextProvider";
 
-function AddGet() {
+function AddGet({user_id}) {
   const [expenses, setExpenses] = useState([]);
   const [triggerFetch, setTriggerFetch] = useState(false);
-  const { user } = useContext(UserContext);
-  const user_id = user.data.id;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(user);
+        console.log(user_id);
         const result = await axios.get('/getAllInfo', { params: { user_id } });
         setExpenses(result.data);
       } catch (err) {

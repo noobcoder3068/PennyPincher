@@ -1,0 +1,35 @@
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .chart-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px 0;
+  }
+  
+  .chart-section, .chart-pie1-section, .chart-pie-section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  

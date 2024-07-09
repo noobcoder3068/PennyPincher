@@ -7,7 +7,6 @@ import Navbar from "./components/navbar";
 import Contact from "./components/contact";
 import About from "./components/about";
 import Display from "./display";
-import ContextProvider from "./context/contextProvider";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
@@ -15,7 +14,6 @@ function App() {
 
     return (
         <BrowserRouter>
-            <ContextProvider>
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -26,7 +24,6 @@ function App() {
                 <Route path="/Display/:user_id/*" element={<Display />} />
             </Routes>
             <Footer />
-            </ContextProvider>
         </BrowserRouter>
     );
 }
