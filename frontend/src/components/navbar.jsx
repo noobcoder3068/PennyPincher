@@ -8,6 +8,9 @@ function Navbar(){
                 <h4>
                     <NavLink to={"/"}>Home</NavLink>
                 </h4>
+                <h4>
+                    <NavLink to={"/"}>Home</NavLink>
+                </h4>
                 <ul className="Navbarul">
                     <li>
                     </li>
