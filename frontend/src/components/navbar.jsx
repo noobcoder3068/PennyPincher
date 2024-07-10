@@ -8,20 +8,20 @@ function Navbar(){
                 <h4>
                     <NavLink to={"/"}>Home</NavLink>
                 </h4>
-                <h4>
-                    <NavLink to={"/"}>Home</NavLink>
-                </h4>
                 <ul className="Navbarul">
                     <li>
                     </li>
                     <li>
-                        <NavLink to={"/SignIn"}>Login</NavLink>
+                        <NavLink to={"/SignIn"}>Sign In/Up</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/Register"}>Register</NavLink>
+
                     </li>
                     <li>
                         <NavLink to={"/Contact"}>Contact</NavLink>
+                    </li>
+                    <li>
+                        
                     </li>
                     <li>
                         <NavLink to={"/About"}>About</NavLink>

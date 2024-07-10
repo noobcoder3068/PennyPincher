@@ -18,13 +18,6 @@ function mousemove(e) {
 	pointer.y = e.y;
 }
 
-function click(e) {
-	let idxa = area.cols * Math.floor((e.y - area.padding) / area.distance);
-	let idxb = Math.ceil((e.x - area.padding) / area.distance);
-	let targetIdx = idxa + idxb - 1;
-	units[targetIdx].spins = !units[targetIdx].spins;
-}
-
 function resizeReset() {
 	w = canvas.width = window.innerWidth;
 	h = canvas.height = window.innerHeight;

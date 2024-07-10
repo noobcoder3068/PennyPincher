@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import './register.css';
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -41,9 +40,11 @@ function Register() {
     };
 
     return (
-        <div className="register">
-            <h1>Register</h1>
-            <input 
+        <div className="form-container sign-up-container">
+      <form onSubmit={handleClick}>
+        <h1>Create Account</h1>
+        <span>use your email for registration</span>
+        <input 
                 type="text"
                 placeholder="Email"
                 name="email"
@@ -64,8 +65,9 @@ function Register() {
                 value={register.password}
                 onChange={handleChange}
             />
-            <button onClick={handleClick}>Register</button>
-        </div>
+        <button>Sign Up</button>
+      </form>
+    </div>
     );
 }
 

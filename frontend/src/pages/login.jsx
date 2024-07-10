@@ -17,8 +17,13 @@ function SignIn() {
         }));
     };
 
-    async function handleClick() {
+    async function handleSubmit(event) {
+        event.preventDefault();
         try {
+            if (login.name === "" || login.password === "") {
+                navigate('/');
+                return;
+            }
             const result = await axios.post('/login', login);
             console.log(result);
             const user_id = result.data.user.id;
@@ -28,7 +33,7 @@ function SignIn() {
             });
             navigate(`/Display/${user_id}`);
         } catch (err) {
-            console.error("Error in handleClick:", err.response ? err.response.data : err.message);
+            console.error("Error in handleSubmit:", err.response ? err.response.data : err.message);
             setLogin({
                 name: "",
                 password: "",
@@ -38,23 +43,27 @@ function SignIn() {
     }
 
     return (
-        <div className="login">
-            <h1>Sign In</h1>
-            <input 
-                type="text"
-                placeholder="Email or Username"
-                name="name"
-                value={login.name}
-                onChange={handleChange}
-            />
-            <input 
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={login.password}
-                onChange={handleChange}
-            />
-            <button onClick={handleClick}>Sign In</button>
+        <div className="form-container sign-in-container">
+            <form onSubmit={handleSubmit}>
+                <h1>Sign in</h1>
+                <span>use your account</span>
+                <input 
+                    type="text"
+                    placeholder="Email or Username"
+                    name="name"
+                    value={login.name}
+                    onChange={handleChange}
+                />
+                <input 
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    value={login.password}
+                    onChange={handleChange}
+                />
+                <a href="#">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
         </div>
     );
 }
