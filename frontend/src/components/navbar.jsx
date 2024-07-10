@@ -5,11 +5,10 @@ function Navbar(){
     return (
         <header>
             <nav>
-                <h4>Penny Pincer</h4>
+                <h4>
+                    <NavLink to={"/"}>Home</NavLink>
+                </h4>
                 <ul className="Navbarul">
-                    <li>
-                        <NavLink to={"/"}>Home</NavLink>
-                    </li>
                     <li>
                         <NavLink to={"/SignIn"}>Login</NavLink>
                     </li>
