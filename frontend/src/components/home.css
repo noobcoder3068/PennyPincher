@@ -1,29 +1,46 @@
 .home-container {
     padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    max-width: 800px;
+    max-width: auto;
     margin: 20px auto;
-    text-align: center;
-}
-
-.home-container h1 {
-    color: #4CAF50;
+    text-align: left;
 }
 
 .hero, .about, .features {
-    margin-bottom: 20px;
+    margin-bottom: 10px; 
 }
 
 .hero h2, .about h2, .features h2 {
-    color: #333;
+    color: #EEEEEE;
+    margin-bottom: 10px; 
 }
 
-.hero p, .about p {
-    color: #666;
+.hero p{
+    width: 700px;
+    color: #EEEEEE;
     line-height: 1.6;
+    margin-bottom: 10px;
 }
 
+.about p, .features p {
+    color: #EEEEEE;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.home-container h1 {
+    font-family: "Cinzel Decorative", serif;
+    color: #EEEEEE;
+    font-size: 90px;
+    text-align: left; 
+}
+
+.hero p, .about p, .features p {
+    text-align: left;
+}
+
+.hero, .about, .features {
+    padding-left: 20px;
+}
 .features ul {
     list-style-type: none;
     padding: 0;

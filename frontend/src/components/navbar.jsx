@@ -6,7 +6,7 @@ function Navbar(){
         <header>
             <nav>
                 <h4>
-                    <NavLink to={"/"}>PennyPincher</NavLink>
+                    <NavLink to={"/"}>Home</NavLink>
                 </h4>
                 <ul className="Navbarul">
                     <li>
