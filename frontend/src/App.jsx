@@ -8,6 +8,7 @@ import Contact from "./components/contact";
 import About from "./components/about";
 import Display from "./display";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import CursorHoverEffect from './pages/cursorHover';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     return (
         <BrowserRouter>
             <Navbar />
+            <CursorHoverEffect />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/SignIn" element={<SignIn />} />

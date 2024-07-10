@@ -1,5 +1,5 @@
 header {
-    background-color: #4CAF50;
+    margin-top: 30px;
     padding: 10px 0;
 }
 
@@ -11,8 +11,9 @@ nav {
 }
 
 h4 {
-    color: white;
+    color: #EEEEEE;
     margin: 0;
+    font-size: 20px;
 }
 
 ul {
