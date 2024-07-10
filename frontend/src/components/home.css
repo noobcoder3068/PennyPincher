@@ -1,28 +1,37 @@
 .home-container {
     padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
+    margin: 80px auto;
+    text-align: left;
 }
 
 .home-container h1 {
-    color: #4CAF50;
+    font-family: "Cinzel Decorative";
+    font-size: 72px;
+    color: #eeeeee;
+    text-align: left; 
 }
 
 .hero, .about, .features {
     margin-bottom: 20px;
+    text-align: left; 
 }
 
 .hero h2, .about h2, .features h2 {
-    color: #333;
+    color: #eeeeee;
+    text-align: left; 
 }
 
 .hero p, .about p {
-    color: #666;
+    color: #eeeeee;
     line-height: 1.6;
+    text-align: left; 
+    font-size: 17px;
 }
+
+.hero p{
+    width: 700px;
+}
+
 
 .features ul {
     list-style-type: none;
@@ -37,3 +46,91 @@
     border-radius: 4px;
     color: #333;
 }
+
+.features-container{
+    margin-top: 150px;
+}
+
+.features {
+    padding: 20px;
+    margin: 20px auto;
+    margin-top: 30px;
+    max-width: 800px;
+    text-align: left;
+}
+
+#features h2 {
+    font-family: "Cinzel Decorative";
+    font-size: 48px;
+    color: #eeeeee;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-family: "Cinzel Decorative";
+    font-size: 22px;
+    color: #e4d59b;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.feature p {
+    font-family: "PT Sans", sans-serif;
+    font-size: 16px;
+    color: #eeeeee;
+    line-height: 1.6;
+}
+
+.about {
+    margin-top: 160px;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+    margin-left: 300px;
+}
+
+.about h2 {
+    font-family: "Cinzel Decorative", sans-serif;
+    font-size: 48px;
+    color: #eeeeee;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about p {
+    font-family: "PT Sans", sans-serif;
+    font-size: 18px;
+    color: #eeeeee;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* SocialLinks.css */
+
+.social-links {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.social-links h2 {
+    margin-top: 80px;
+    font-family: "Cinzel Decorative", sans-serif;
+    color: #eeeeee;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icons a {
+    margin: 0 20px;
+    transition: transform 0.3s ease;
+}
+
+.icons a:hover {
+    transform: translateY(-5px);
+}
+
