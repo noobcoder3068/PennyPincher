@@ -1,9 +1,11 @@
-import express from 'express';
+import express, { text } from 'express';
 import axios from 'axios';
 import cors from 'cors';
 import pg from 'pg';
 import bcrypt from 'bcrypt';
 import env from 'dotenv';
+import nodemailer from 'nodemailer';
+import crypto, { hash } from 'crypto';
 
 const port = 5000;
 const app = express();
@@ -19,6 +21,14 @@ const db = new pg.Client({
     password: process.env.PG_PASSWORD,
     port: process.env.PG_PORT,
 });
+
+const transporter= nodemailer.createTransport({
+    service: "gmail",
+    auth:{
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
+    }
+})
 
 db.connect((err) => {
     if (err) {
@@ -208,6 +218,103 @@ console.log('User ID:', user_id);
     }
 });
 
+app.post('/forgot-password', async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const result = await db.query('SELECT * FROM users WHERE email = $1', [email]);
+        if (result.rows.length === 0) {
+            return res.status(404).send("No registration with this email");
+        }
+
+        const resetToken = crypto.randomBytes(32).toString('hex');
+        // const resetTokenExpiry = Date.now() + 3600000;
+
+        await db.query('UPDATE users SET resetToken = $1 WHERE email = $2', [resetToken, email]);
+
+        const mailOptions = {
+            from: process.env.GMAIL_USER,
+            to: email,
+            subject: "Reset Password",
+            text: `You requested a password reset. Click the following link to reset your password: http://localhost:3000/reset-password/${resetToken}`
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).send('Error sending email');
+            }
+            console.log("Password reset email sent");
+            res.send('Password reset email sent');
+        });
+
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.post('/reset-password/:token', async (req, res) => {
+    const { password } = req.body;
+    const token = req.params.token;
+
+    try {
+        const result = await db.query('SELECT * FROM users WHERE resetToken = $1', [token]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).send("Invalid token");
+        }
+
+        // if (result.rows[0].resetTokenExpiry < Date.now()) {
+        //     return res.send("Your reset link has expired, please try again");
+        // }
+
+        bcrypt.hash(password, saltRounds, async (error, hash) => {
+            if (error) {
+                return res.status(406).send("There was an error in hashing the password");
+            } else {
+                if (hash === result.rows[0].password) {
+                    return res.send("This is the same password as before, please set a different password");
+                }
+                try {
+                    await db.query('UPDATE users SET password = $1 WHERE resetToken = $2', [hash, token]);
+                    console.log("Password was updated");
+                    res.send("Password reset successfully");
+                } catch (err) {
+                    console.log("Error in database", err);
+                    res.status(500).send("There was an error updating the password in the database");
+                }
+            }
+        });
+    } catch (err) {
+        console.log("There was an error in backend", err);
+        res.status(500).send("There was an error processing your request");
+    }
+});
+
+app.post('/contact', async (req, res) => {
+    const mail = req.body;
+    try {
+        const mailOptions = {
+            from: mail.email,
+            to: process.env.GMAIL_USER,
+            subject: "Message from a PennyPincher user",
+            text: `Name: ${mail.user}\nemail: ${mail.email} \nMessage: ${mail.message}`,
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).send('Error sending email');
+            }
+            console.log("Contact form email sent:", info.response);
+            res.send('Contact form email sent successfully');
+        });
+    } catch (err) {
+        console.error("There was an error in the contact backend:", err);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 app.listen(port, () => {
     console.log('Server is live on port', port);
