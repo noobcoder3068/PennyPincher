@@ -70,17 +70,6 @@
     border-color: #ffffff;
   }
   
-  form {
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 50px;
-    height: 100%;
-    text-align: center;
-  }
-  
   input {
     background-color: #eee;
     border: none;
@@ -225,6 +214,10 @@
     margin: 0 5px;
     height: 40px;
     width: 40px;
+  }
+
+  .forgot-pass{
+    color: #333;
   }
   
   footer {

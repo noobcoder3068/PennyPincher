@@ -24,7 +24,7 @@ function Navbar(){
                         
                     </li>
                     <li>
-                        <NavLink to={"/About"}>About</NavLink>
+                        <NavLink to={"/About"}>AboutUs</NavLink>
                     </li>
                 </ul>
             </nav>

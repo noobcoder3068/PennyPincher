@@ -18,8 +18,13 @@ function Register() {
         }));
     };
 
-    async function handleClick(){
+    async function handleClick(event){
+        event.preventDefault();
         try{
+            if(register.email === "" || register.username === "" || register.password === ""){
+                navigate('/');
+                return;
+            }
             const result= await axios.post('/register', register);
             console.log(result);
             setRegister({
@@ -27,7 +32,6 @@ function Register() {
                 username:"",
                 password:"",
             });
-            navigate('/Display');
         }catch(err){
             console.error("HandleClick problem:", err.response ? err.response.data : err.message);
             setRegister({

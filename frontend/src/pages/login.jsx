@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function SignIn() {
     const [login, setLogin] = useState({
@@ -20,7 +20,7 @@ function SignIn() {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            if (login.name === "" || login.password === "") {
+            if (login.name === "" && login.password === "") {
                 navigate('/');
                 return;
             }
@@ -61,7 +61,7 @@ function SignIn() {
                     value={login.password}
                     onChange={handleChange}
                 />
-                <a href="#">Forgot your password?</a>
+                <NavLink to="/Forgot-password" className="forgot-pass">Forgot Password</NavLink>
                 <button type="submit">Sign In</button>
             </form>
         </div>

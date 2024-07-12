@@ -13,9 +13,8 @@ function Home() {
                 <section className="hero">
                     <h2>Every Penny Counts: Track and Save with Us</h2>
                     <p>Start managing your finances efficiently with PennyPincher, your ultimate financial companion.
-                         Effortlessly track your income and expenses, gain insights into your spending habits, and set achievable financial goals.
                           Our user-friendly interface helps you create and stick to a budget, ensuring informed decisions about your money.
-                         Whether saving for a big purchase, planning for retirement, or reducing debt, PennyPincher provides the tools you need to stay on top of your finances. 
+                         PennyPincher provides the tools you need to stay on top of your finances. 
                         Join our community of savvy savers today and take the first step towards a more secure and prosperous financial future.</p>
                 </section>
 
@@ -40,20 +39,31 @@ function Home() {
             </section>
 
             <section class="about">
-            <h2>About Us</h2>
+            <h2>About PennyPincher</h2>
             <p>
-            PennyPincher is designed to help you take control of your finances effectively and efficiently. 
-            With our intuitive platform, you can effortlessly track your expenses, categorize spending, and 
-            analyze trends to understand where your money goes. Plan your budget with confidence using customizable 
-            categories and spending limits, ensuring you stay on track towards your financial objectives.
-
-            Our commitment is to empower you with insightful tools that foster financial literacy and discipline. 
-            Gain actionable insights into your financial habits, identify areas for improvement, and make informed 
-            decisions to optimize your financial health. Whether you're saving for a major purchase, planning for retirement, 
-            or reducing debt, PennyPincher equips you with the resources to achieve financial stability and realize your 
-            long-term financial aspirations.
-
-            Join PennyPincher today and embark on your journey towards financial empowerment and security.</p>
+                Welcome to PennyPincher, your ultimate personal finance tracking application. Our mission is to empower users to take control of their finances with ease and confidence.
+            </p>
+            <p>
+                At PennyPincher, we prioritize security and privacy. All your data is securely stored and only accessible to you. Each user's data is isolated, ensuring that your financial information remains confidential.
+            </p>
+            <p>
+                Our application provides insightful charts and graphs that make understanding your spending and income trends simple and straightforward. With personalized feedback, PennyPincher helps you make informed financial decisions and improve your financial health.
+            </p>
+            <p>
+                PennyPincher is more than just a finance tracker; it's your financial advisor. We offer comprehensive tools that allow you to set budgets, track expenses, and monitor your savings goals. Our intuitive interface makes managing your finances a hassle-free experience.
+            </p>
+            <p>
+                With PennyPincher, you can connect multiple accounts, categorize your transactions, and gain a holistic view of your financial situation. Our advanced analytics provide detailed insights into your spending habits, helping you identify areas where you can save more.
+            </p>
+            <p>
+                We believe in the power of community. Join our growing community of users who share tips and advice on managing finances better. Our platform is designed to be user-friendly, ensuring that both beginners and experienced users can benefit from our features.
+            </p>
+            <p>
+                Your feedback is important to us. We continuously work on improving PennyPincher based on user suggestions and technological advancements. Our goal is to provide you with the best tools and support to achieve your financial goals.
+            </p>
+            <p>
+                Thank you for choosing PennyPincher to manage your finances. Together, we can achieve financial well-being and peace of mind.
+            </p>
             </section>
 
             <section className="social-links">
