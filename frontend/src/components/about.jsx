@@ -1,34 +1,25 @@
 import React from 'react';
 import './about.css';
+import abdImage from './abd.jpg';
 
 function AboutUs() {
     return (
         <div className="about-us-container">
-            <h1>About PennyPincher</h1>
-            <p>
-                Welcome to PennyPincher, your ultimate personal finance tracking application. Our mission is to empower users to take control of their finances with ease and confidence.
-            </p>
-            <p>
-                At PennyPincher, we prioritize security and privacy. All your data is securely stored and only accessible to you. Each user's data is isolated, ensuring that your financial information remains confidential.
-            </p>
-            <p>
-                Our application provides insightful charts and graphs that make understanding your spending and income trends simple and straightforward. With personalized feedback, PennyPincher helps you make informed financial decisions and improve your financial health.
-            </p>
-            <p>
-                PennyPincher is more than just a finance tracker; it's your financial advisor. We offer comprehensive tools that allow you to set budgets, track expenses, and monitor your savings goals. Our intuitive interface makes managing your finances a hassle-free experience.
-            </p>
-            <p>
-                With PennyPincher, you can connect multiple accounts, categorize your transactions, and gain a holistic view of your financial situation. Our advanced analytics provide detailed insights into your spending habits, helping you identify areas where you can save more.
-            </p>
-            <p>
-                We believe in the power of community. Join our growing community of users who share tips and advice on managing finances better. Our platform is designed to be user-friendly, ensuring that both beginners and experienced users can benefit from our features.
-            </p>
-            <p>
-                Your feedback is important to us. We continuously work on improving PennyPincher based on user suggestions and technological advancements. Our goal is to provide you with the best tools and support to achieve your financial goals.
-            </p>
-            <p>
-                Thank you for choosing PennyPincher to manage your finances. Together, we can achieve financial well-being and peace of mind.
-            </p>
+            <h1>About Me</h1>
+            <div className='image-abd'>
+                <img src={abdImage} alt='image-mine' />
+            </div>
+            <div className="about-content">
+                <p>
+                    Welcome to PennyPincher! I am Abdulaziz Shaikh, the creator of this website. I have developed both the frontend and backend of this project all by myself. It took me almost half a month to bring this project to life. My goal was to create an efficient and user-friendly Personal Finance Tracker to help users manage their finances effectively.
+                </p>
+                <p>
+                    About me: I am a student at the National Institute of Technology (NIT) Kurukshetra, currently pursuing a Bachelor of Technology (B.Tech) degree in Information Technology. As a passionate full-stack developer, I have honed my skills in various web technologies and programming languages. My expertise includes working with React, Node.js, Express, and PostgreSQL, among other tools and frameworks. I am dedicated to creating robust, scalable, and intuitive applications, and I continuously strive to learn and grow in the field of software development.
+                </p>
+                <p>
+                    When I'm not coding, I enjoy exploring new technologies, participating in hackathons, and contributing to open-source projects. I believe in the power of technology to solve real-world problems and am excited about the future of software development.
+                </p>
+            </div>
         </div>
     );
 }

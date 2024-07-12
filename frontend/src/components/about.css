@@ -1,14 +1,7 @@
-.about-us-container {
-    color: white;
-    background-color: transparent;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
 .about-us-container h1 {
     font-family: Cinzel Decorative;
     color: #eeeeee;
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin-bottom: 20px;
 }
 
@@ -16,4 +9,28 @@
     font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 15px;
+    color: #EEEEEE;
+}
+
+.about-us-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-abd img {
+    width: 100%;
+    max-width: 200px; 
+    height: auto;
+    border-radius: 48%; 
+    margin: 20px 0;
+}
+
+.about-content {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #EEEEEE;
+    padding: 20px;
 }

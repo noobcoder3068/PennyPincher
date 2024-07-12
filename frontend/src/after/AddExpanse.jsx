@@ -114,8 +114,10 @@ function AddExpanse({ addExpense }) {
             </select>
           </>
         )}
-
-        <button onClick={submitNote}>Add</button>
+        <br />
+        <div className="addexpense-butt">
+          <button onClick={submitNote}>Add</button>
+        </div>
       </form>
     </div>
   );

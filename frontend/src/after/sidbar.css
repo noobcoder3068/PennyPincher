@@ -1,14 +1,16 @@
 .sidebar-container {
-  float: left;
-  width: 200px;
-  height: 100vh; 
+  display: flex;          /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+  width: 200px;           /* Set sidebar width */
+  height: 100vh;          
   background-color: #f0f0f0;
   padding: 20px;
   border-right: 1px solid #ddd;
+  overflow-y: auto;      
 }
 
 .sidebar {
-  display: block;
+  flex: 0 0 auto;  
 }
 
 .sidebar-title {

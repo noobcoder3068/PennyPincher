@@ -1,5 +1,6 @@
 import React from 'react';
 import './contact.css';
+import SendIcon from '@mui/icons-material/Send';
 
 function Contact() {
     return (
@@ -15,7 +16,9 @@ function Contact() {
                 <label>Message</label>
                 <textarea name="message" placeholder="Your message"></textarea>
 
-                <button type="submit">Send</button>
+                <div className='butt'>
+                    <SendIcon>Send</SendIcon>
+                </div>
             </form>
         </div>
     );
