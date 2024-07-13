@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import ShowInfo from "./ShowInfo";
 import "./AddGet.css";
 import AddExpanse from "./AddExpanse";
 
-function AddGet({user_id}) {
+function AddGet() {
   const [expenses, setExpenses] = useState([]);
   const [triggerFetch, setTriggerFetch] = useState(false);
+  const {user_id} = useParams();
 
   useEffect(() => {
     const fetchData = async () => {

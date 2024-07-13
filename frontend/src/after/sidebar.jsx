@@ -11,13 +11,13 @@ function SideBar({ user_id }) {
         </div>
         <ul className="sidebar-list">
           <li>
-            <NavLink to={`/Display/${user_id}`} className="sidebar-link">DATA</NavLink>
+            <NavLink to={`/${user_id}/Display`} className="sidebar-link">DATA</NavLink>
           </li>
           <li>
-            <NavLink to={`/Display/${user_id}/Charts`} className="sidebar-link">CHARTS</NavLink>
+            <NavLink to={`/${user_id}/Display/Charts`} className="sidebar-link">CHARTS</NavLink>
           </li>
           <li>
-            <NavLink to={`/Display/${user_id}/FeedBack`} className="sidebar-link">FEEDBACK</NavLink>
+            <NavLink to={`/${user_id}/Display/FeedBack`} className="sidebar-link">FEEDBACK</NavLink>
           </li>
         </ul>
       </div>

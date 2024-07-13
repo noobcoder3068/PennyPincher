@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Bar, Pie, Doughnut } from "react-chartjs-2";
+import { useParams } from "react-router-dom";
 import 'chart.js/auto';
 import './Graphical.css';
 
-const Charts = ({ user_id }) => {
+const Charts = () => {
   const [chartData, setChartData] = useState(null);
+  const {user_id}= useParams();
 
   useEffect(() => {
     const fetchChartData = async () => {
