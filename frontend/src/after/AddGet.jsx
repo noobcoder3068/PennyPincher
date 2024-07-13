@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import ShowInfo from "./ShowInfo";
 import "./AddGet.css";
@@ -6,6 +7,7 @@ import AddExpanse from "./AddExpanse";
 import { useParams } from "react-router-dom";
 
 
+function AddGet() {
 function AddGet() {
   const [expenses, setExpenses] = useState([]);
   const [triggerFetch, setTriggerFetch] = useState(false);

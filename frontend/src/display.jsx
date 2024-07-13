@@ -1,18 +1,18 @@
-import React from 'react';
-import './display.css';
-import AddGet from './after/AddGet';
-import Charts from './after/Graphical';
-import Feedback from './after/Feedback';
-import SideBar from './after/sidebar';
-import { Routes, Route, useParams } from 'react-router-dom';
+// import React from 'react';
+// import './display.css';
+// import AddGet from './after/AddGet';
+// import Charts from './after/Graphical';
+// import Feedback from './after/Feedback';
+// import SideBar from './after/sidebar';
+// import { Routes, Route, useParams } from 'react-router-dom';
 
 const Display = () => {
   const { user_id } = useParams();
 
-  if (!user_id) {
-    console.error('Invalid user_id:', user_id);
-    return <div>Error: Invalid user ID</div>;
-  }
+//   if (!user_id) {
+//     console.error('Invalid user_id:', user_id);
+//     return <div>Error: Invalid user ID</div>;
+//   }
 
   return (
     <div className="display-container">
@@ -30,4 +30,4 @@ const Display = () => {
   );
 };
 
-export default Display;
+// export default Display;
