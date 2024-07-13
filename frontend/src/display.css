@@ -1,18 +1,16 @@
 .display-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  height: 100%;
+}
+
+.sidebar {
+  grid-column: 1;
+  position: fixed;
 }
 
 .display-content {
-  flex: 1; 
+  grid-column: 2;
+  color: #000;
   padding: 20px;
-}
-
-@media (max-width: 768px) {
-  .display-container {
-    flex-direction: column;
-  }
-
-  .display-content {
-    padding: 10px;
-  }
 }

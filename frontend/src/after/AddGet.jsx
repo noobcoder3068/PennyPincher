@@ -3,10 +3,13 @@ import axios from "axios";
 import ShowInfo from "./ShowInfo";
 import "./AddGet.css";
 import AddExpanse from "./AddExpanse";
+import { useParams } from "react-router-dom";
 
-function AddGet({user_id}) {
+
+function AddGet() {
   const [expenses, setExpenses] = useState([]);
   const [triggerFetch, setTriggerFetch] = useState(false);
+  const {user_id}= useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,8 +36,10 @@ function AddGet({user_id}) {
 
   return (
     <div>
-      <h1>Welcome Back, Master!</h1>
-      <h1>Expense Tracker</h1>
+      <div className="nigga">
+        <h1>Welcome Back,  Nigga!</h1>
+      </div>
+
       <AddExpanse addExpense={addExpense} />
       <ShowInfo expenses={expenses} />
     </div>

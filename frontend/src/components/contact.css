@@ -1,27 +1,28 @@
 .contact-container {
     text-align: center;
+    margin: 100px auto; /* Adjusted margin for better spacing */
     padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: transparent;
-    color: #EEEEEE; 
+    max-width: 400px; /* Reduced size of the container */
+    background-color: rgba(54, 53, 53, 0.15);
+    backdrop-filter: blur(3px);
+    color: #EEEEEE;
 }
 
 .contact-container h1 {
     color: #EEEEEE;
     font-size: 42px;
-    font-family:  Cinzel Decorative;
+    font-family: Cinzel Decorative;
     margin-bottom: 20px;
 }
 
-.butt{
+.butt {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.butt:hover{
-    color: gold;
+.butt:hover {
+    color: rgb(6, 213, 240);
 }
 
 .contact-container form {

@@ -5,7 +5,7 @@ function Navbar(){
     return (
         <header>
             <nav>
-                <h4>
+                <h4 className="navbar-home">
                     <NavLink to={"/"}>Home</NavLink>
                 </h4>
                 <ul className="Navbarul">

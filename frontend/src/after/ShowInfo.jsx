@@ -3,12 +3,20 @@ import "./ShowInfo.css";
 
 function ShowInfo({ expenses }) {
   return (
-    <div>
+    <div className="showinfo-container">
       <h1>Expense Entries</h1>
-      <ul className="showinfoul">
+      <ul className="showinfo-list">
         {expenses.slice().reverse().map((expense, index) => (
-          <li key={index} className="list">
-            {expense.description}: ${expense.balance} ({expense.category} - {expense.method}): {expense.date}
+          <li key={index} className="showinfo-item">
+            <div className="expense-details">
+              <div className="expense-description">{expense.description}</div>
+              <div className="expense-amount">${expense.balance}</div>
+            </div>
+            <div className="expense-info">
+              <div className="expense-category">{expense.category}</div>
+              <div className="expense-method">{expense.method}</div>
+              <div className="expense-date">{expense.date}</div>
+            </div>
           </li>
         ))}
       </ul>

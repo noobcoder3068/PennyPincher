@@ -1,29 +1,54 @@
 .create-area {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-  }
-  
-  .create-note {
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 5px 8px #ccc;
-    padding: 20px;
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .create-note input,
-  .create-note textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.create-note {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.create-note input,
+.create-note textarea,
+.create-note select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.3);
+  color: #000;  
+  font-family: 'Poppins', sans-serif;
+}
+
+.create-note input::placeholder,
+.create-note textarea::placeholder {
+  color: rgb(0, 0, 0); 
+}
+
+.create-note label {
+  margin: 5px 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.addexpense-butt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.bu:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

@@ -7,7 +7,7 @@ import SideBar from './after/sidebar';
 import { Routes, Route, useParams } from 'react-router-dom';
 
 const Display = () => {
-  const {user_id}= useParams();
+  const { user_id } = useParams();
 
   if (!user_id) {
     console.error('Invalid user_id:', user_id);
@@ -16,12 +16,14 @@ const Display = () => {
 
   return (
     <div className="display-container">
-      <SideBar user_id={user_id}/>
-      <div className="display-content">
+      <div className='sidebar'>
+        <SideBar user_id={user_id} />
+      </div>
+      <div className="display-content" >
         <Routes>
-          <Route path="/" element={<AddGet user_id={user_id}/>} />
-          <Route path="Charts" element={<Charts user_id={user_id} />} />
-          <Route path="FeedBack" element={<Feedback user_id={user_id} />} />
+          <Route path="/" element={<AddGet />} />
+          <Route path="Charts" element={<Charts />} />
+          <Route path="FeedBack" element={<Feedback />} />
         </Routes>
       </div>
     </div>

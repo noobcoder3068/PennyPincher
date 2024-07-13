@@ -1,9 +1,11 @@
 .footer {
+  height: 5vh;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #000000; 
+  background-color:  rgba(54, 53, 53, 0.15); 
+  backdrop-filter: blur(10px);
   color: #ffffff;
   padding: 10px 20px;
   text-align: center; 

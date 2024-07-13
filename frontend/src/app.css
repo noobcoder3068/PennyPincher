@@ -1,0 +1,52 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: black; 
+    color: #eeeeee;
+  }
+  
+  /* Container for the entire application */
+  .app-container {
+    display: grid;
+    grid-template-rows: 10vh 1fr 5vh; 
+    height: 100vh; 
+  }
+  
+  /* Fixed background canvas animation */
+  .canvas-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind all other content */
+    background-color: #000; 
+  }
+  
+  /* Header styles */
+  header {
+    grid-row: 1; 
+  }
+  
+  /* Main content (routes) styles */
+  main.content-wrapper {
+    grid-row: 2;
+    overflow-y: auto; 
+    padding: 20px; 
+  }
+  
+  /* Footer styles */
+  footer {
+    grid-row: 3; 
+  }
+  

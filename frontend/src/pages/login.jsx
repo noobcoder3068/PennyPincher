@@ -31,7 +31,7 @@ function SignIn() {
                 name: "",
                 password: "",
             });
-            navigate(`/Display/${user_id}`);
+            navigate(`/${user_id}/Display`);
         } catch (err) {
             console.error("Error in handleSubmit:", err.response ? err.response.data : err.message);
             setLogin({
