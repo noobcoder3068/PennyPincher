@@ -70,45 +70,92 @@ const Charts = () => {
     plugins: {
       title: {
         display: true,
+        color: '#EEEEEE',
         text: 'Transaction Summary',
       },
       legend: {
         display: false,
+        color: '#EEEEEE',
       },
     },
     scales: {
-      y: {
-        beginAtZero: true,
+      x: {
+        ticks: {
+          color: '#EEEEEE' 
+        },
+        title: {
+          display: true,
+          text: 'Transaction Type',
+          color: '#EEEEEE' 
+        },
+        grid:{
+          color: '#EEEEEE'
+        },
+        border:{
+          color:'#EEEEEE'
+        }
       },
+      y: {
+        ticks: {
+          color: '#EEEEEE'
+        },
+        title: {
+          display: true,
+          text: 'Total Balance',
+          color: '#EEEEEE' 
+        },
+        grid:{
+          color: '#EEEEEE'
+        },
+        border:{
+          color:'#EEEEEE'
+        }
+      }
     },
   };
 
   const savingByCategoryOptions = {
     plugins: {
       title: {
+        color: '#EEEEEE',
         display: true,
         text: 'Saving by Category',
       },
+      legend: {
+        labels: {
+          color: '#EEEEEE'
+        }
+      }
     },
   };
 
   const expenseByCategoryOptions = {
     plugins: {
       title: {
+        color: '#EEEEEE',
         display: true,
         text: 'Expense by Category',
       },
+      legend: {
+        labels: {
+          color: '#EEEEEE'
+        }
+      }
     },
   };
 
   const balanceByMethodOptions = {
     plugins: {
       title: {
+        color: '#EEEEEE',
         display: true,
         text: 'Balance by Method',
       },
       legend: {
         position: 'bottom',
+        labels: {
+          color: '#EEEEEE'
+        }
       },
     },
   };
@@ -116,32 +163,38 @@ const Charts = () => {
   return (
     <div className="charts-container">
       <h1>Financial Overview</h1>
-      <p>Welcome to your personal finance dashboard. Here you'll find a detailed overview of your financial transactions, savings, expenses, and balance distribution. Let's dive into the data!</p>
+      <p>Welcome to your personal finance dashboard. 
+        Here, you'll find a comprehensive visual overview of your financial transactions. 
+        The data is presented in various charts and graphs, providing a clear and detailed breakdown of your savings, expenses, 
+        and balance distribution. Let's dive into the data and explore your financial landscape.</p>
       
-      <div className="chart-section">
+      <div className="chr">
+      <div className="chart-bar">
         <h2>Transaction Summary</h2>
         <p>This chart summarizes all your transactions, categorized into savings and expenses, showing the total balance for each type.</p>
         <Bar data={bar_data} options={transactionSummaryOptions} />
       </div>
       
       <div className="chart-row">
-        <div className="chart-pie1-section">
-          <h2>Saving by Category</h2>
+        <div className="chart-donught">
+          <h2>Saving </h2>
           <p>This pie chart breaks down your savings into various categories, giving you a clear picture of where you are accumulating wealth.</p>
           <Doughnut data={pie_sav} options={savingByCategoryOptions} />
         </div>
-        <div className="chart-pie-section">
-          <h2>Expense by Category</h2>
+        <div className="chart-donught">
+          <h2>Expense </h2>
           <p>This pie chart illustrates your expenses across different categories, helping you understand your spending habits.</p>
           <Doughnut data={pie_exp} options={expenseByCategoryOptions} />
         </div>
       </div>
       
-      <div className="chart-section">
+      <div className="chart-pie">
         <h2>Balance by Method</h2>
         <p>This doughnut chart shows the distribution of your total balance across various transaction methods such as Net Banking, UPI, and Cash.</p>
         <Pie data={donut_met} options={balanceByMethodOptions} />
       </div>
+      </div>
+      
     </div>
   );
 };

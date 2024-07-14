@@ -4,7 +4,6 @@
   width: 200px;
   height: 100vh;          
   background-color: transparent;
-  /* justify-content: center; */
   overflow-y: auto;      
 }
 
