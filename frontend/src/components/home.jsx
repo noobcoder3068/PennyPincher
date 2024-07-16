@@ -70,16 +70,16 @@ function Home() {
             <h2>Connect With Me</h2>
             <div className="icons">
                 <a href="https://www.linkedin.com/in/abdul00/" target="_blank" rel="noopener noreferrer">
-                    <LinkedInIcon fontSize="large"/>
+                    <LinkedInIcon fontSize="large" color="primary"/>
                 </a>
                 <a href="https://www.instagram.com/abd.ul_aziz_/" target="_blank" rel="noopener noreferrer">
-                    <InstagramIcon fontSize="large"/>
+                    <InstagramIcon fontSize="large" sx={{ color: "purple" }}/>
                 </a>
                 <a href="https://github.com/noobcoder3068" target="_blank" rel="noopener noreferrer">
-                    <GitHubIcon fontSize="large"/>
+                    <GitHubIcon fontSize="large" sx={{ color: "white" }}/>
                 </a>
                 <a href="https://www.github.com/yourprofile" target="_blank" rel="noopener noreferrer">
-                    <WhatsAppIcon fontSize="large"/>
+                    <WhatsAppIcon fontSize="large" sx={{ color: "lightgreen" }}/>
                 </a>
             </div>
             </section>

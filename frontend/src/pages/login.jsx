@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
+import "./login.css"; // Import the CSS file
 
 function SignIn() {
     const [login, setLogin] = useState({
@@ -43,8 +44,8 @@ function SignIn() {
     }
 
     return (
-        <div className="form-container sign-in-container">
-            <form className="sign-in-form" onSubmit={handleSubmit}>
+        <div className="signin-form-container">
+            <form className="signin-form" onSubmit={handleSubmit}>
                 <h1>Sign in</h1>
                 <span>use your account</span>
                 <input 
@@ -63,6 +64,7 @@ function SignIn() {
                 />
                 <NavLink to="/Forgot-password" className="forgot-pass">Forgot Password</NavLink>
                 <button type="submit">Sign In</button>
+                <NavLink to="/Register" className="Reg">Haven't Registered?</NavLink>
             </form>
         </div>
     );

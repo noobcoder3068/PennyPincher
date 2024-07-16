@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./register.css"; 
 
 function Register() {
     const [register, setRegister] = useState({
@@ -32,6 +33,7 @@ function Register() {
                 username:"",
                 password:"",
             });
+            navigate('/SignIn');
         }catch(err){
             console.error("HandleClick problem:", err.response ? err.response.data : err.message);
             setRegister({
@@ -44,34 +46,34 @@ function Register() {
     };
 
     return (
-        <div className="form-container sign-up-container">
-      <form onSubmit={handleClick}>
-        <h1>Create Account</h1>
-        <span>use your email for registration</span>
-        <input 
-                type="text"
-                placeholder="Email"
-                name="email"
-                value={register.email}
-                onChange={handleChange}
-            />
-            <input 
-                type="text"
-                placeholder="Username"
-                name="username"
-                value={register.username}
-                onChange={handleChange}
-            />
-            <input 
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={register.password}
-                onChange={handleChange}
-            />
-        <button>Sign Up</button>
-      </form>
-    </div>
+        <div className="register-form-container">
+            <form className="register-form" onSubmit={handleClick}>
+                <h1>Create Account</h1>
+                <span>use your email for registration</span>
+                <input 
+                    type="text"
+                    placeholder="Email"
+                    name="email"
+                    value={register.email}
+                    onChange={handleChange}
+                />
+                <input 
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    value={register.username}
+                    onChange={handleChange}
+                />
+                <input 
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    value={register.password}
+                    onChange={handleChange}
+                />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
     );
 }
 

@@ -25,6 +25,7 @@ nav {
 }
 
 .navbar-home a {
+    font-family: Cinzel Decorative;
     color: #fff;
     text-decoration: none;
 }
@@ -41,6 +42,7 @@ nav {
 }
 
 .Navbarul li a {
+    font-family: Cinzel Decorative;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
@@ -50,5 +52,9 @@ nav {
 }
 
 .Navbarul li a:hover {
-    color: #14ffef;
+    color: goldenrod;
+}
+
+.navbar-home :hover{
+    color: goldenrod;
 }

@@ -1,10 +1,12 @@
 .contact-container {
     text-align: center;
-    margin: 100px auto; /* Adjusted margin for better spacing */
-    padding: 20px;
-    max-width: 400px; /* Reduced size of the container */
-    background-color: rgba(54, 53, 53, 0.15);
-    backdrop-filter: blur(3px);
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 400px; 
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
     color: #EEEEEE;
 }
 
@@ -22,7 +24,7 @@
 }
 
 .butt:hover {
-    color: rgb(6, 213, 240);
+    color: goldenrod;
 }
 
 .contact-container form {
@@ -46,13 +48,30 @@
 
 .contact-container input[type="text"],
 .contact-container input[type="email"] {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for inputs */
-    color: #000; /* Black text color */
+    width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.contact-container input[type="text"]::placeholder,
+.contact-container input[type="email"]::placeholder{
+    color: aliceblue;
 }
 
 .contact-container textarea {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background for textarea */
-    color: #000; /* Black text color */
-    resize: none; /* Prevent resizing */
-    height: 150px;
+    background-color: rgba(144, 142, 142, 0.9); 
+    color: #000; 
+    resize: none; 
+    height: 100px;
+}
+
+.contact-container textarea::placeholder{
+    color: aliceblue;
+    font-size: larger;
 }
