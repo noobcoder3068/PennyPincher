@@ -44,6 +44,14 @@
 
 .chart-pie{
   margin-top: 80px;
+  height: 600px;
+}
+
+.pie{
+  display: flex;
+  align-items: center;
+  height: 400px;
+  justify-content: center;
 }
 
 .charts-container h1 {

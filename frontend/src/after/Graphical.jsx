@@ -191,7 +191,9 @@ const Charts = () => {
       <div className="chart-pie">
         <h2>Balance by Method</h2>
         <p>This doughnut chart shows the distribution of your total balance across various transaction methods such as Net Banking, UPI, and Cash.</p>
-        <Pie data={donut_met} options={balanceByMethodOptions} />
+        <div className="pie">
+          <Pie data={donut_met} options={balanceByMethodOptions} />
+        </div>
       </div>
       </div>
       
