@@ -1,7 +1,7 @@
 .forgot-password-container {
     width: 500px;
     height: 40vh;
-    margin: auto;
+    margin: 120px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,6 +17,8 @@
 .forgot-password-container h1 {
     color: #EEEEEE;
     margin-bottom: 20px;
+    display: flex;
+    justify-content:center ;
 }
 
 .forgot-password-container input,
@@ -39,7 +41,7 @@
 .forgot-password-container button {
     display: block;
     justify-content: center;
-    width: 200px;
+    width: 150px;
     background-color: #303841;
     color: #EEEEEE;
     cursor: pointer;

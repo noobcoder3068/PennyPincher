@@ -1,5 +1,6 @@
 .sidebar-container {
   display: flex;      
+  justify-content: center;
   flex-direction: column;
   width: 200px;
   height: 100vh;          
@@ -29,6 +30,8 @@
 }
 
 .sidebar-list li {
+  font-family: "Cinzel Decorative";
+  font-size: larger;
   margin: 10px 0;
 }
 

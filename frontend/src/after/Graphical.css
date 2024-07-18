@@ -1,8 +1,10 @@
 .charts-container {
+  margin-left: 200px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+  
 }
 
 .chr {

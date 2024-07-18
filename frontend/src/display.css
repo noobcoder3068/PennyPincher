@@ -1,4 +1,4 @@
-.display-container {
+/* .display-container {
   display: grid;
   grid-template-columns: 250px 1fr 100px;
   height: 100%;
@@ -13,4 +13,21 @@
   grid-column: 2;
   color: #000;
   padding: 20px;
+} */
+
+.display-container{
+  grid-row: 2;
+  height: 100%;
 }
+
+.sidebar-cont{
+  grid-column: 1;
+  position: fixed;
+}
+
+.display-content{
+  grid-column: 2;
+  color: #000;
+  padding: 20px;
+}
+

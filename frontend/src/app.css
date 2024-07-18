@@ -15,38 +15,43 @@
     color: #eeeeee;
   }
   
-  /* Container for the entire application */
   .app-container {
     display: grid;
-    grid-template-rows: 10vh 1fr 5vh; 
+    grid-template-areas: 'header header'
+                          'content-wrapper content-wrapper'
+                          'sidebar-cont display-content'
+                          'footer footer';
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 200px 1fr; 
     height: 100vh; 
   }
   
-  /* Fixed background canvas animation */
   .canvas-background {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Behind all other content */
+    z-index: -1;
     background-color: #000; 
   }
   
-  /* Header styles */
+  
   header {
+    grid-area: header;
     grid-row: 1; 
   }
   
-  /* Main content (routes) styles */
   main.content-wrapper {
-    grid-row: 2;
+    grid-area: content-wrapper;
+    grid-row: 3;
     overflow-y: auto; 
     padding: 20px; 
   }
   
   /* Footer styles */
   footer {
-    grid-row: 3; 
+    grid-area: footer;
+    grid-row: 4; 
   }
   

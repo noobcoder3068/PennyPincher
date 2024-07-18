@@ -16,7 +16,9 @@ const Display = () => {
 
   return (
     <div className="display-container">
-      <SideBar user_id={user_id} className="sidebar" />
+      <div className='sidebar-cont'>
+        <SideBar user_id={user_id} className="sidebar" />
+      </div>
       <div className="display-content">
         <Routes>
           <Route path="/" element={<AddGet />} />

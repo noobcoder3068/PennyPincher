@@ -6,9 +6,6 @@ function SideBar({ user_id }) {
   return (
     <div className="sidebar-container">
       <div className="sidebar2">
-        <div className="sidebar-title">
-          <p>GET THE</p>
-        </div>
         <ul className="sidebar-list">
           <li>
             <NavLink to={`/${user_id}/Display`} className="sidebar-link">DATA</NavLink>
